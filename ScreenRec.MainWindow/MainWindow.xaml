@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenRec.MainWindow"
+        xmlns:Settings="clr-namespace:ScreenRec.Settings;assembly=ScreenRec.Settings" x:Class="ScreenRec.MainWindow.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="197" Width="350" Closing="Window_Closing">
+    <ScrollViewer>
+        <DockPanel LastChildFill="False" Loaded="DockPanel_Loaded" MinHeight="48">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Button Content="Start" Click="StartRecorder"/>
+                <Button Content="Stop" Click="StopRecorder"/>
+            </StackPanel>
+            <ListBox x:Name="ListRecorders" DockPanel.Dock="Top" MinHeight="50"/>
+            <Expander x:Name="EXSettings" Header="Настройки" DockPanel.Dock="Top" IsExpanded="False">
+                <Expander.DataContext>
+                    <Settings:Settings/>
+                </Expander.DataContext>
+                <DockPanel>
+                    <WrapPanel DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Длительность мин.: "/>
+                            <TextBox MinWidth="30" Text="{Binding Path=RecordDurationMin}"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Кадр/сек.: "/>
+                            <TextBox MinWidth="30" Text="{Binding Path=Fps}"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Папка видео.: "/>
+                            <TextBox MinWidth="30" Text="{Binding Path=VideoFolder}"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Макс размер Папки Гиг"/>
+                            <TextBox MinWidth="30" Text="{Binding Path=MaxGigFolderSize}"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="#transcode Video"/>
+                            <TextBox MinWidth="30" Text="{Binding Path=VideoString}"  />
+                        </StackPanel>
+                        <CheckBox Content="Писать аудио" IsChecked="{Binding Path=WriteSound}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="#transcode Audio"/>
+                            <TextBox MinWidth="30" Text="{Binding Path=AudioString}"  />
+                        </StackPanel>
+                        <ListView x:Name="ListMonitors" ItemsSource="{Binding Path=Monitors}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label x:Name="labs" Content="{Binding Path=GetString}"/>
+                                        <Button Content="Настроить зоны записи" Click="SettScreenArea"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </WrapPanel>
+                </DockPanel>
+            </Expander>
+        </DockPanel>
+    </ScrollViewer>
+</Window>
