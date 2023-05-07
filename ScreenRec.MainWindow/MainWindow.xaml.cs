@@ -1,8 +1,9 @@
 ﻿using ScreenRec.Settings;
 using System.Windows;
 using System.Windows.Controls;
-using ScreenRec.ScreeanArea;
+
 using System.ComponentModel;
+using ScreenRec.ScreeanArea;
 
 namespace ScreenRec.MainWindow
 {
