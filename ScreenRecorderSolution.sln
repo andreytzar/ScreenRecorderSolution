@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenRec.MainWindow", "ScreenRec.MainWindow\ScreenRec.MainWindow.csproj", "{3ED46A69-315F-48CE-A458-71424D101257}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenRec.ScreanArea", "ScreenRec.ScreeanArea\ScreenRec.ScreanArea.csproj", "{DFC3776A-9778-4FB1-A3BC-4474EE62F0A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenRec.ScreenArea", "ScreenRec.ScreeanArea\ScreenRec.ScreenArea.csproj", "{DFC3776A-9778-4FB1-A3BC-4474EE62F0A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenRec.Settings", "ScreenRec.Settings\ScreenRec.Settings.csproj", "{B4DD2AD0-138F-4EFA-B5DB-EB6A2F416B87}"
 EndProject
