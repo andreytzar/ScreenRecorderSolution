@@ -5,7 +5,7 @@ namespace ScreenRec.Recoder
     public class MainRecorder : IDisposable
     {
         private LibVLC libvlc;
-        public List<AreaRecorder> Recorders { get; set; }
+        public List<IAreaRecorder> Recorders { get; set; }
         CancellationToken _token;
 
         public MainRecorder()
@@ -47,18 +47,18 @@ namespace ScreenRec.Recoder
         public async Task Start(CancellationToken token =default)
         {
             _token = token;
-            var sett = Settings.Sett.Setting;
+         
             await Stop();
             Recorders = new();
-            foreach (var monitor in sett.Monitors) 
+            foreach (var monitor in Settings.Sett.Setting.Monitors) 
             {
                 if (token.IsCancellationRequested) break;
                 int i = 1;
                 foreach (var rect in monitor.Rectangles)
                 {
                     if (token.IsCancellationRequested) break;
-                    var param = new RecorderParam(sett, monitor, rect, i);
-                    var rec = new AreaRecorder(libvlc, param);
+                    var param = new RecorderParam(Settings.Sett.Setting, monitor, rect, i);
+                    var rec = new AreaRecorderLibVLCSharp(libvlc, param);
                     Recorders.Add(rec);
                     rec.RunScheduler(token);
                     i++;

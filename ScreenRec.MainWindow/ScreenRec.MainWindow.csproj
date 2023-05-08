@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ScreenRec.Recoder\ScreenRec.Recoder.csproj" />
-    <ProjectReference Include="..\ScreenRec.ScreeanArea\ScreenRec.ScreenArea.csproj" />
     <ProjectReference Include="..\ScreenRec.ScreenArea\ScreenRec.ScreenArea.csproj" />
     <ProjectReference Include="..\ScreenRec.Settings\ScreenRec.Settings.csproj" />
   </ItemGroup>

@@ -9,6 +9,9 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="LibVLCSharp" Version="3.7.0" />
+		<PackageReference Include="SharpDX" Version="4.2.0" />
+		<PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
+		<PackageReference Include="Uno.UI" Version="4.8.33" />
 		<PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.18" />
 	</ItemGroup>
 	<ItemGroup>
